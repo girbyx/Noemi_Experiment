@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <Wizard header="Survey/Wizard" class="wizard" />
-  </div>
+  <Wizard header="Survey/Wizard" class="wizard" />
 </template>
 
 <script>
@@ -17,8 +15,7 @@ export default {
 
 <style lang="scss">
 .wizard {
-  width: 60%;
-  min-height: 400px;
+  width: 75%;
   margin: auto;
   border: 1px black solid;
   float: center;

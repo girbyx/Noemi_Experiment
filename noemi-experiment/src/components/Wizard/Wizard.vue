@@ -1,13 +1,29 @@
 <template>
-  <div>
-    <h1>{{ header }}</h1>
-    <Step1 v-show="currentStep==1" class="step" />
-    <Step2 v-show="currentStep==2" class="step" />
-    <Step3 v-show="currentStep==3" class="step" />
-    <button v-on:click="goPrev()" class="prevButton">Prev</button>
-    <button v-on:click="goNext()" class="nextButton">Next</button>
-    <p>Step: {{ currentStep }}/{{ lastStep }}</p>
-  </div>
+  <v-container fluid>
+    <v-row no-gutters>
+      <v-col sm="12">
+        <h1>{{ header }}</h1>
+      </v-col>
+    </v-row>
+    <v-row no-gutters>
+      <v-col class="stepColumn" sm="12">
+        <Step1 v-show="currentStep == 1" />
+        <Step2 v-show="currentStep == 2" />
+        <Step3 v-show="currentStep == 3" />
+      </v-col>
+      <v-col sm="6">
+        <v-btn text small color="primary" v-on:click="goPrev()">Prev</v-btn>
+      </v-col>
+      <v-col sm="6">
+        <v-btn text small color="primary" v-on:click="goNext()">Next</v-btn>
+      </v-col>
+    </v-row>
+    <v-row no-gutters>
+      <v-col sm="12">
+        <p>Step: {{ currentStep }}/{{ lastStep }}</p>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -45,16 +61,10 @@ export default class Wizard extends Vue {
 
 <style lang="scss">
 button {
-  &.prevButton{
-
-  }
-
-  &.nextButton{
-
-  }
+  width: 100%;
 }
 
-.step {
-  
+.stepColumn {
+  min-height: 500px;
 }
 </style>
